@@ -2,6 +2,7 @@
 sync-gpio is a node library helps developer control GPIO pins on Raspberry Pi eaiser and faster.
 
 ## Sample Code
+Press a button to light on a LED.
 ```
 var gpio = require('sync-gpio');
 var led = new gpio.Pin(gpio.PIN17, gpio.OUTPUT);
