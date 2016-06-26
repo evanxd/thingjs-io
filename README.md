@@ -8,6 +8,7 @@ var led = new gpio.Pin(gpio.PIN17, gpio.OUTPUT);
 var button = new gpio.Pin(gpio.PIN18, gpio.INPUT);
 
 button.on('data', function(value) {
-  pin17.val(value);
+  led.val(value);
+  console.log('LED Pin: ' + led.val());
 });
 ```
