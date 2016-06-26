@@ -1,0 +1,19 @@
+{
+  "name": "sync-gpio",
+  "description": "sync-gpio is a node library helps developer control GPIO pins on Raspberry Pi eaiser and faster.",
+  "version": "0.0.1",
+  "author": {
+    "name": "Evan Tseng",
+    "email": "evan@tseng.io"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evanxd/sync-gpio"
+  },
+  "keyword": [
+    "gpio",
+    "iot",
+    "raspberry pi"
+  ]
+}
