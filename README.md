@@ -1,5 +1,5 @@
-# sync-gpio
-sync-gpio is a node library helps developer control GPIO pins on Raspberry Pi eaiser and faster.
+# GPIO.JS
+GPIO.JS is a node library helps developer control GPIO eaiser and faster.
 
 ## Sample Code
 Press a button to light on a LED.
