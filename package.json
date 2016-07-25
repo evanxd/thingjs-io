@@ -11,9 +11,6 @@
     "type": "git",
     "url": "https://github.com/evanxd/gpio-js"
   },
-  "dependencies": {
-    "fs-sync": "1.0.2"
-  },
   "keyword": [
     "gpio",
     "iot",
