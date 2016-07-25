@@ -1,7 +1,7 @@
 {
   "name": "gpio-js",
   "description": "GPIO.JS is a node library helps developer control GPIO eaiser and faster.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": {
     "name": "Evan Tseng",
     "email": "evan@tseng.io"
