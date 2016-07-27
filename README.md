@@ -1,7 +1,12 @@
 # GPIO.JS
 GPIO.JS is a node library helps developer control GPIO eaiser and faster on [Raspberry Pi][rpi] or [other boards][supported-boards] supported [Node.js][nodejs].
 
-## Sample Code
+## Get Started
+### Install
+```
+npm install gpio-js
+```
+
 ### Blink an LED
 ```
 var GPIO = require('gpio-js');
@@ -12,6 +17,7 @@ setInterval(function() {
 }, 1000);
 ```
 
+## Examples
 ### Press a Button to Light On an LED.
 ```
 var GPIO = require('gpio-js');
@@ -22,6 +28,7 @@ button.on('data', function(value) {
   console.log('LED Pin: ' + led.val(value));
 });
 ```
+
 ## Supported Boards
 * [Raspberry Pi][rpi]
 * [Linkit Smart 7688 (Duo)][linkit7688]
