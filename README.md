@@ -17,15 +17,14 @@ setInterval(function() {
 }, 1000);
 ```
 
-## Examples
-### Press a Button to Light On an LED.
+## Features
+### Event-driven Model to Get GPIO Pin Status
 ```
 var GPIO = require('gpio-js');
-var led = new GPIO(17, 'out');
 var button = new GPIO(18, 'in');
 
 button.on('data', function(value) {
-  console.log('LED Pin: ' + led.val(value));
+  console.log('Button Pin: ' + value);
 });
 ```
 
