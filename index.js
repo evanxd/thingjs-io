@@ -25,26 +25,26 @@ function GPIO(pin, mode) {
   }
 }
 
+util.inherits(GPIO, EventEmitter);
+
 GPIO.GPIO_PATH = '/sys/class/gpio/';
 GPIO.IN = 'in';
 GPIO.OUT = 'out';
 
-GPIO.prototype = {
-  pin: null,
-  mode: null,
-  _value: null,
+GPIO.prototype.pin = null;
+GPIO.prototype.mode = null;
+GPIO.prototype._value = null;
 
-  val: function(value) {
-    var mode = this.mode;
-    var pin = this.pin;
-    if (mode === GPIO.IN) {
-      this._value = readPin(pin);
-    } else if (mode === GPIO.OUT && value !== undefined) {
-      writePin(pin, value);
-      this._value = value;
-    }
-    return this._value;
+GPIO.prototype.val = function(value) {
+  var mode = this.mode;
+  var pin = this.pin;
+  if (mode === GPIO.IN) {
+    this._value = readPin(pin);
+  } else if (mode === GPIO.OUT && value !== undefined) {
+    writePin(pin, value);
+    this._value = value;
   }
+  return this._value;
 };
 
 /**
@@ -90,7 +90,5 @@ function readPin(pin) {
 function writePin(pin, value) {
   fs.writeFileSync(GPIO.GPIO_PATH + 'gpio' + pin + '/value', value);
 }
-
-util.inherits(GPIO, EventEmitter);
 
 module.exports = GPIO;
