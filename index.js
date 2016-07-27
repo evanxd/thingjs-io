@@ -55,7 +55,7 @@ function initPin(pin, mode) {
     fs.writeFileSync(GPIO.GPIO_PATH + 'gpio' + pin + '/direction', mode);
   } else {
     destroyPin(pin);
-    initPin(pin);
+    initPin(pin, mode);
   }
 }
 
