@@ -10,7 +10,6 @@ var FileWatcher = require('./lib/file-watcher');
 exec('mt7688_pinmux set wled gpio');
 
 function GPIO(pin, mode) {
-  EventEmitter.call(this);
   this.pin = pin;
   if (mode === GPIO.IN || mode === GPIO.OUT) {
     this.mode = mode;
@@ -25,8 +24,6 @@ function GPIO(pin, mode) {
       }.bind(this));
   }
 }
-
-util.inherits(GPIO, EventEmitter);
 
 GPIO.GPIO_PATH = '/sys/class/gpio/';
 GPIO.IN = 'in';
@@ -93,5 +90,7 @@ function readPin(pin) {
 function writePin(pin, value) {
   fs.writeFileSync(GPIO.GPIO_PATH + 'gpio' + pin + '/value', value);
 }
+
+util.inherits(GPIO, EventEmitter);
 
 module.exports = GPIO;
