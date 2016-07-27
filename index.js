@@ -11,19 +11,19 @@ exec('mt7688_pinmux set wled gpio');
 function GPIO(pin, mode) {
   EventEmitter.call(this);
   this.pin = pin;
-  if (mode === GPIO.INPUT || mode === GPIO.OUTPUT) {
+  if (mode === GPIO.IN || mode === GPIO.OUT) {
     this.mode = mode;
   } else {
     console.warn('No such mode: ' + mode);
   }
-  exportPin(pin);
+  initPin(pin, mode);
 }
 
 util.inherits(GPIO, EventEmitter);
 
 GPIO.GPIO_PATH = '/sys/class/gpio/';
-GPIO.INPUT = 'input';
-GPIO.OUTPUT = 'output';
+GPIO.IN = 'in';
+GPIO.OUT = 'out';
 
 GPIO.prototype = {
   pin: null,
@@ -33,9 +33,9 @@ GPIO.prototype = {
   val: function(value) {
     var mode = this.mode;
     var pin = this.pin;
-    if (mode === GPIO.INPUT) {
+    if (mode === GPIO.IN) {
       this._value = readPin(pin);
-    } else if (mode === GPIO.OUTPUT && value !== undefined) {
+    } else if (mode === GPIO.OUT && value !== undefined) {
       writePin(pin, value);
       this._value = value;
     }
@@ -44,25 +44,27 @@ GPIO.prototype = {
 };
 
 /**
- * Export pin for reading/writing the pin.
+ * Initialize pin for reading/writing the pin.
  *
  * @param {Number} pin Pin number.
+ * @param {String} mode in or out mode.
  */
-function exportPin(pin) {
+function initPin(pin, mode) {
   if (!fs.existsSync(GPIO.GPIO_PATH + 'gpio' + pin)) {
     fs.writeFileSync(GPIO.GPIO_PATH + 'export', pin);
+    fs.writeFileSync(GPIO.GPIO_PATH + 'gpio' + pin + '/direction', mode);
   } else {
-    unexportPin(pin);
-    exportPin(pin);
+    destroyPin(pin);
+    initPin(pin);
   }
 }
 
 /**
- * Reset the pin.
+ * Destroy the pin.
  *
  * @param {Number} pin Pin number.
  */
-function unexportPin(pin) {
+function destroyPin(pin) {
   fs.writeFileSync(GPIO.GPIO_PATH + 'unexport', pin);
 }
 
