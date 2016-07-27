@@ -4,6 +4,7 @@ var exec = require('child_process').execSync;
 var fs = require('fs');
 var util = require('util');
 var EventEmitter = require('events').EventEmitter;
+var FileWatcher = require('./lib/file-watcher');
 
 // XXX: Workaround to set the wled's pin mode as GPIO for Linkit 7688.
 exec('mt7688_pinmux set wled gpio');
@@ -17,6 +18,12 @@ function GPIO(pin, mode) {
     console.warn('No such mode: ' + mode);
   }
   initPin(pin, mode);
+  if (mode === GPIO.IN) {
+    new FileWatcher(GPIO.GPIO_PATH + 'gpio' + pin + '/value')
+      .on('change', function(value) {
+        this.emit('data', value);
+      }.bind(this));
+  }
 }
 
 util.inherits(GPIO, EventEmitter);
