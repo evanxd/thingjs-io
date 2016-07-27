@@ -5,7 +5,7 @@ GPIO.JS is a node library helps developer control GPIO eaiser and faster on [Ras
 ### Blink an LED
 ```
 var GPIO = require('gpio-js');
-var led = new GPIO(44, GPIO.OUT);
+var led = new GPIO(44, 'out');
 
 setInterval(function() {
   led.val(1 - led.val());
@@ -13,11 +13,10 @@ setInterval(function() {
 ```
 
 ### Press a Button to Light On an LED.
-The `data` event emitter is not implemented yet.
 ```
 var GPIO = require('gpio-js');
-var led = new GPIO(17, GPIO.OUT);
-var button = new GPIO(18, GPIO.IN);
+var led = new GPIO(17, 'out');
+var button = new GPIO(18, 'in');
 
 button.on('data', function(value) {
   console.log('LED Pin: ' + led.val(value));
