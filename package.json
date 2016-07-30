@@ -1,0 +1,25 @@
+{
+  "name": "thingjs-io",
+  "description": "Read and write pins on a dev board.",
+  "version": "0.0.1",
+  "author": {
+    "name": "Evan Tseng",
+    "email": "evan@tseng.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evanxd/thingjs-io"
+  },
+  "keywords": [
+    "device",
+    "gpio",
+    "iot",
+    "linkit",
+    "maker",
+    "raspberry-pi"
+    "thingjs"
+  ],
+  "dependencies": {
+    "gpio-js": "0.0.9"
+  }
+}
