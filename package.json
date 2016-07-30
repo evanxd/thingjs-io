@@ -16,7 +16,7 @@
     "iot",
     "linkit",
     "maker",
-    "raspberry-pi"
+    "raspberry-pi",
     "thingjs"
   ],
   "dependencies": {
