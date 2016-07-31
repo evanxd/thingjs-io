@@ -1,7 +1,7 @@
 {
   "name": "thingjs-io",
   "description": "Read and write pins on a dev board.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Evan Tseng",
     "email": "evan@tseng.io"
