@@ -1,7 +1,7 @@
 'use strict';
 
 var util = require('util');
-var GPIO = require('gpio-js');
+var GPIO = require('./lib/gpio');
 var UART = require('./lib/uart');
 
 function IO (pins, mode) {

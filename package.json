@@ -18,8 +18,5 @@
     "maker",
     "raspberry-pi",
     "thingjs"
-  ],
-  "dependencies": {
-    "gpio-js": "0.0.9"
-  }
+  ]
 }
