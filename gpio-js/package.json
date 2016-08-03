@@ -1,0 +1,20 @@
+{
+  "name": "gpio-js",
+  "description": "GPIO.JS is a node library helps developer control GPIO eaiser and faster.",
+  "version": "0.0.10",
+  "author": {
+    "name": "Evan Tseng",
+    "email": "evan@tseng.io"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evanxd/gpio-js"
+  },
+  "keywords": [
+    "gpio",
+    "iot",
+    "raspberry pi",
+    "linkit"
+  ]
+}
