@@ -2,20 +2,24 @@
 
 var util = require('util');
 var GPIO = require('./lib/gpio');
+var PWM  = require('./lib/pwm'); 
 var UART = require('./lib/uart');
 
-function IO (pins, mode) {
-  var instance;
+function IO (pin, mode) {
+  var io;
   switch (mode) {
     case 'in':
     case 'out':
-      instance = new GPIO(pins, mode);
+      io = new GPIO(pin, mode);
+      break;
+    case 'pwm':
+      io = new PWM(pin);
       break;
     case 'uart':
-      instance = new UART(pins);
+      io = new UART(pin);
       break;
   }
-  return instance;
+  return io;
 }
 
 module.exports = IO;
