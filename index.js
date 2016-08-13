@@ -5,21 +5,20 @@ var GPIO = require('./lib/gpio');
 var PWM  = require('./lib/pwm'); 
 var UART = require('./lib/uart');
 
-function IO (pin, mode) {
-  var io;
-  switch (mode) {
-    case 'in':
-    case 'out':
-      io = new GPIO(pin, mode);
+function IO (io, type, mode) {
+  var IO;
+  switch (type) {
+    case 'gpio':
+      IO = new GPIO(io, mode);
       break;
     case 'pwm':
-      io = new PWM(pin);
+      IO = new PWM(io);
       break;
     case 'uart':
-      io = new UART(pin);
+      IO = new UART(io);
       break;
   }
-  return io;
+  return IO;
 }
 
 IO.prototype = {
