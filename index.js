@@ -22,4 +22,18 @@ function IO (pin, mode) {
   return io;
 }
 
+IO.prototype = {
+  /**
+   * The interface to get/sett value of the io.
+   * @param {Number} value The io's value.
+   */
+  val: function(value) {},
+  /**
+   * The interface to listen the io's value.
+   * @param {String} eventName The name of the event.
+   * @param {Function} listener The callback function.
+   */
+  on: function(eventName, listener) {}
+}
+
 module.exports = IO;
