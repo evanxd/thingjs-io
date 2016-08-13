@@ -12,7 +12,7 @@ function IO (io, type, options) {
       IO = new GPIO(io, options);
       break;
     case 'pwm':
-      IO = new PWM(io);
+      IO = new PWM(io, options);
       break;
     case 'uart':
       IO = new UART(io);
