@@ -18,5 +18,8 @@
     "maker",
     "raspberry-pi",
     "thingjs"
-  ]
+  ],
+  "dependencies": {
+    "iotjs-linkit7688": "0.0.x"
+  }
 }
