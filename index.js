@@ -10,8 +10,9 @@ var UART = require('./lib/uart');
 function IO (io, type, options) {
   var IO;
 
+  // Workaround: The UART `io` is an array, just use the first item `io[0]`.
   // Remap the `io` pin, from board's pin number to system's pin number.
-  var pin = linkit7688['p' + io];
+  var pin = Array.isArray(io) ? linkit7688['p' + io[0]] : linkit7688['p' + io];
   io = typeof pin[type] === 'number' ? pin[type] : pin[type].index;
 
   // FIXME: Hard code the `mt7688_pinmux` command. We should use a cross-platform solution.
