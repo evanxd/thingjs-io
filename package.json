@@ -20,6 +20,6 @@
     "thingjs"
   ],
   "dependencies": {
-    "iotjs-linkit7688": "0.0.x"
+    "rpi3-pinout": "0.0.x"
   }
 }

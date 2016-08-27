@@ -1,7 +1,7 @@
 'use strict';
 
 var exec = require('child_process').execSync;
-var linkit7688 = require('iotjs-linkit7688');
+var pinout = require('rpi3-pinout');
 var util = require('util');
 var GPIO = require('./lib/gpio');
 var PWM  = require('./lib/pwm'); 
@@ -12,12 +12,8 @@ function IO (io, type, options) {
 
   // Workaround: The UART `io` is an array, just use the first item `io[0]`.
   // Remap the `io` pin, from board's pin number to system's pin number.
-  var pin = Array.isArray(io) ? linkit7688['p' + io[0]] : linkit7688['p' + io];
+  var pin = Array.isArray(io) ? pinout['p' + io[0]] : pinout['p' + io];
   io = typeof pin[type] === 'number' ? pin[type] : pin[type].index;
-
-  // FIXME: Hard code the `mt7688_pinmux` command. We should use a cross-platform solution.
-  // Use pinmux to switch the pin to the right mode.
-  exec('mt7688_pinmux set ' + pin.group + ' ' + type);
 
   switch (type) {
     case 'gpio':
