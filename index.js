@@ -4,8 +4,9 @@ var exec = require('child_process').execSync;
 var pinout = require('rpi3-pinout');
 var util = require('util');
 var GPIO = require('./lib/gpio');
-var PWM  = require('./lib/pwm'); 
-var UART = require('./lib/uart');
+var PWM  = require('./lib/pwm');
+// FIXME: Raspberry Pi cannot run the uart module.
+// var UART = require('./lib/uart');
 
 function IO (io, type, options) {
   var IO;
@@ -22,9 +23,9 @@ function IO (io, type, options) {
     case 'pwm':
       IO = new PWM(io, options);
       break;
-    case 'uart':
-      IO = new UART(io);
-      break;
+    // case 'uart':
+    //   IO = new UART(io);
+    //   break;
   }
   return IO;
 }
